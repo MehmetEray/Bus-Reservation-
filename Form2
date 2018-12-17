@@ -1,0 +1,399 @@
+# Bus-Reservation-using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient;
+namespace BCproject
+{
+    public partial class Form2 : Form
+    {
+        private String gender2;
+        int price = 100, price2 = 106;
+        
+        public string Gender2 { get => gender2; set => gender2 = value; }
+        
+        public Form2()
+        {
+            InitializeComponent();
+        }
+        public String con2String = "Data Source=DESKTOP-543P5LQ;Initial Catalog=BUSCOM;Integrated Security=True";
+
+        private void button23_Click(object sender, EventArgs e)
+        {
+            SqlConnection con2 = new SqlConnection(con2String);
+            con2.Open();
+
+            if (con2.State == System.Data.ConnectionState.Open)
+            {
+                string query2 = "insert into BUSCOM2(seatno,price) values " +
+                    "(@seatno,@price)";
+                SqlCommand cmd2 = new SqlCommand(query2, con2);
+                cmd2.Parameters.Add("@seatno", label3.Text.ToString());
+                cmd2.Parameters.Add("@price", label5.Text.ToString());
+               
+                cmd2.ExecuteNonQuery();
+                MessageBox.Show("Connected to database");
+            }
+            con2.Close();
+
+            Application.Exit();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form1 f1 = new Form1();
+            if(gender2 == "male")
+            {
+                button1.BackColor = Color.Aqua;
+            }
+            else
+            {
+                button1.BackColor = Color.Red;
+            }
+            MessageBox.Show("Attention! Single seats are more expensive than others.");
+            label3.Text = button1.Text;
+            label5.Text = price2.ToString() ;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Form1 f1 = new Form1();
+            if (gender2 == "male")
+            {
+                button4.BackColor = Color.Aqua;
+            }
+            else
+            {
+                button4.BackColor = Color.Red;
+            }
+            MessageBox.Show("Attention! Single seats are more expensive than others.");
+            label3.Text = button1.Text;
+            label5.Text = price2.ToString();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form1 f1 = new Form1();
+            if (gender2 == "male")
+            {
+                button2.BackColor = Color.Aqua;
+            }
+            else
+            {
+                button2.BackColor = Color.Red;
+            }
+
+            label3.Text = button1.Text;
+            label5.Text = price.ToString();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Form1 f1 = new Form1();
+            if (gender2 == "male")
+            {
+                button3.BackColor = Color.Aqua;
+            }
+            else
+            {
+                button3.BackColor = Color.Red;
+            }
+
+            label3.Text = button1.Text;
+            label5.Text = price.ToString();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Form1 f1 = new Form1();
+            if (gender2 == "male")
+            {
+                button5.BackColor = Color.Aqua;
+            }
+            else
+            {
+                button5.BackColor = Color.Red;
+            }
+
+            label3.Text = button1.Text;
+            label5.Text = price.ToString();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Form1 f1 = new Form1();
+            if (gender2 == "male")
+            {
+                button6.BackColor = Color.Aqua;
+            }
+            else
+            {
+                button6.BackColor = Color.Red;
+            }
+
+            label3.Text = button1.Text;
+            label5.Text = price.ToString();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Form1 f1 = new Form1();
+            if (gender2 == "male")
+            {
+                button7.BackColor = Color.Aqua;
+            }
+            else
+            {
+                button7.BackColor = Color.Red;
+            }
+            MessageBox.Show("Attention! Single seats are more expensive than others.");
+            label3.Text = button1.Text;
+            label5.Text = price2.ToString();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            Form1 f1 = new Form1();
+            if (gender2 == "male")
+            {
+                button8.BackColor = Color.Aqua;
+            }
+            else
+            {
+                button8.BackColor = Color.Red;
+            }
+
+            label3.Text = button1.Text;
+            label5.Text = price.ToString();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            Form1 f1 = new Form1();
+            if (gender2 == "male")
+            {
+                button9.BackColor = Color.Aqua;
+            }
+            else
+            {
+                button9.BackColor = Color.Red;
+            }
+
+            label3.Text = button1.Text;
+            label5.Text = price.ToString();
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            Form1 f1 = new Form1();
+            if (gender2 == "male")
+            {
+                button10.BackColor = Color.Aqua;
+            }
+            else
+            {
+                button10.BackColor = Color.Red;
+            }
+            MessageBox.Show("Attention! Single seats are more expensive than others.");
+            label3.Text = button1.Text;
+            label5.Text = price.ToString();
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            Form1 f1 = new Form1();
+            if (gender2 == "male")
+            {
+                button11.BackColor = Color.Aqua;
+            }
+            else
+            {
+                button11.BackColor = Color.Red;
+            }
+
+            label3.Text = button1.Text;
+            label5.Text = price2.ToString();
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            Form1 f1 = new Form1();
+            if (gender2 == "male")
+            {
+                button12.BackColor = Color.Aqua;
+            }
+            else
+            {
+                button12.BackColor = Color.Red;
+            }
+
+            label3.Text = button1.Text;
+            label5.Text = price.ToString();
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            Form1 f1 = new Form1();
+            if (gender2 == "male")
+            {
+                button13.BackColor = Color.Aqua;
+            }
+            else
+            {
+                button13.BackColor = Color.Red;
+            }
+            MessageBox.Show("Attention! Single seats are more expensive than others.");
+            label3.Text = button1.Text;
+            label5.Text = price2.ToString();
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            Form1 f1 = new Form1();
+            if (gender2 == "male")
+            {
+                button14.BackColor = Color.Aqua;
+            }
+            else
+            {
+                button14.BackColor = Color.Red;
+            }
+            MessageBox.Show("Attention! Single seats are more expensive than others.");
+            label3.Text = button1.Text;
+            label5.Text = price2.ToString();
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            Form1 f1 = new Form1();
+            if (gender2 == "male")
+            {
+                button15.BackColor = Color.Aqua;
+            }
+            else
+            {
+                button15.BackColor = Color.Red;
+            }
+
+            label3.Text = button1.Text;
+            label5.Text = price.ToString();
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            Form1 f1 = new Form1();
+            if (gender2 == "male")
+            {
+                button16.BackColor = Color.Aqua;
+            }
+            else
+            {
+                button16.BackColor = Color.Red;
+            }
+
+            label3.Text = button1.Text;
+            label5.Text = price.ToString();
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            Form1 f1 = new Form1();
+            if (gender2 == "male")
+            {
+                button17.BackColor = Color.Aqua;
+            }
+            else
+            {
+                button17.BackColor = Color.Red;
+            }
+            MessageBox.Show("Attention! Single seats are more expensive than others.");
+            label3.Text = button1.Text;
+            label5.Text = price2.ToString();
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            Form1 f1 = new Form1();
+            if (gender2 == "male")
+            {
+                button19.BackColor = Color.Aqua;
+            }
+            else
+            {
+                button19.BackColor = Color.Red;
+            }
+
+            label3.Text = button1.Text;
+            label5.Text = price.ToString();
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            Form1 f1 = new Form1();
+            if (gender2 == "male")
+            {
+                button18.BackColor = Color.Aqua;
+            }
+            else
+            {
+                button18.BackColor = Color.Red;
+            }
+
+            label3.Text = button1.Text;
+            label5.Text = price.ToString();
+        }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            Form1 f1 = new Form1();
+            if (gender2 == "male")
+            {
+                button20.BackColor = Color.Aqua;
+            }
+            else
+            {
+                button20.BackColor = Color.Red;
+            }
+            MessageBox.Show("Attention! Single seats are more expensive than others.");
+            label3.Text = button1.Text;
+            label5.Text = price2.ToString();
+        }
+
+        private void button21_Click(object sender, EventArgs e)
+        {
+            Form1 f1 = new Form1();
+            if (gender2 == "male")
+            {
+                button21.BackColor = Color.Aqua;
+            }
+            else
+            {
+                button21.BackColor = Color.Red;
+            }
+
+            label3.Text = button1.Text;
+            label5.Text = price.ToString();
+        }
+
+        private void button22_Click(object sender, EventArgs e)
+        {
+            Form1 f1 = new Form1();
+            if (gender2 == "male")
+            {
+                button22.BackColor = Color.Aqua;
+            }
+            else
+            {
+                button22.BackColor = Color.Red;
+            }
+
+            label3.Text = button1.Text;
+            label5.Text = price.ToString();
+        }
+    }
+}
