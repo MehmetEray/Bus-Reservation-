@@ -1,0 +1,99 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient;
+namespace BCproject
+{
+    public partial class Form1 : Form
+    {
+        String gender;
+        public Form1()
+        {
+            InitializeComponent();
+            comboBox1.Items.Add("iSTANBUL - ESENLER");
+            comboBox1.Items.Add("ANKARA - AŞTİ");
+            comboBox1.Items.Add("İZMİR - İZOTAŞ");
+            comboBox1.Items.Add("AYDIN - OTOGAR");
+            comboBox1.Items.Add("KOCAELİ - KOCAŞ");
+            comboBox2.Items.Add("iSTANBUL - DUDULLU");
+            comboBox2.Items.Add("ANKARA - AŞTİ");
+            comboBox2.Items.Add("İZMİR - İZOTAŞ");
+            comboBox2.Items.Add("ESKİŞEHİR - ESTAŞ");
+            comboBox2.Items.Add("NAZİLLİ - OTOGAR");
+            comboBox3.Items.Add("01.00 am");
+            comboBox3.Items.Add("04.00 am");
+            comboBox3.Items.Add("07.00 am");
+            comboBox3.Items.Add("12.00 am");
+            comboBox3.Items.Add("01.00 pm");
+            comboBox3.Items.Add("04.00 pm");
+            comboBox3.Items.Add("07.00 pm");
+            comboBox3.Items.Add("00.00 pm");
+     
+        }
+        public String conString = "Data Source=DESKTOP-543P5LQ;Initial Catalog=BUSCOM;Integrated Security=true";
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            gender = "male";
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            gender = "female";
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(conString);
+            con.Open();
+            if (con.State == System.Data.ConnectionState.Open)
+            {
+                string q = "insert into BUSCOM(name,surname,phoneNumber,gender,email,address,fromPlace,toPlace,date,hour) values " +
+                    "(@name,@surname,@phoneNumber,@gender,@email,@address,@fromPlace,@toPlace,@date,@hour)";
+                SqlCommand cmd = new SqlCommand(q, con);
+                cmd.Parameters.Add("@name", textBox1.Text.ToString());
+                cmd.Parameters.Add("@surname", textBox2.Text.ToString());
+                cmd.Parameters.Add("@phoneNumber", textBox3.Text.ToString());
+                cmd.Parameters.Add("@gender", gender);
+                cmd.Parameters.Add("@email", textBox4.Text.ToString());
+                cmd.Parameters.Add("@address", textBox5.Text.ToString());
+                cmd.Parameters.Add("@fromPlace", comboBox1.Text.ToString());
+                cmd.Parameters.Add("@toPlace", comboBox2.Text.ToString());
+                cmd.Parameters.Add("@date", dateTimePicker1.Value.Date);
+                cmd.Parameters.Add("@hour", comboBox3.Text.ToString());
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Connected to database");
+            }
+
+            if (radioButton1.Checked == false && radioButton2.Checked == false)
+            {
+                MessageBox.Show("Please check your gender");
+            }
+            con.Close();
+            
+            Form2 f2 = new Form2();
+            f2.Gender2 = gender;
+            f2.ShowDialog();
+            f2.Show();
+            this.Hide();
+    
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
+    }
+
