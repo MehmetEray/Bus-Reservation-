@@ -16,44 +16,38 @@ namespace BCproject
         public Form1()
         {
             InitializeComponent();
-            comboBox1.Items.Add("iSTANBUL - ESENLER");
-            comboBox1.Items.Add("ANKARA - AŞTİ");
-            comboBox1.Items.Add("İZMİR - İZOTAŞ");
-            comboBox1.Items.Add("AYDIN - OTOGAR");
-            comboBox1.Items.Add("KOCAELİ - KOCAŞ");
-            comboBox2.Items.Add("iSTANBUL - DUDULLU");
-            comboBox2.Items.Add("ANKARA - AŞTİ");
-            comboBox2.Items.Add("İZMİR - İZOTAŞ");
-            comboBox2.Items.Add("ESKİŞEHİR - ESTAŞ");
-            comboBox2.Items.Add("NAZİLLİ - OTOGAR");
-            comboBox3.Items.Add("01.00 am");
-            comboBox3.Items.Add("04.00 am");
-            comboBox3.Items.Add("07.00 am");
-            comboBox3.Items.Add("12.00 am");
-            comboBox3.Items.Add("01.00 pm");
-            comboBox3.Items.Add("04.00 pm");
-            comboBox3.Items.Add("07.00 pm");
-            comboBox3.Items.Add("00.00 pm");
+            fromComboBox.Items.Add("iSTANBUL - ESENLER");
+            fromComboBox.Items.Add("ANKARA - AŞTİ");
+            fromComboBox.Items.Add("İZMİR - İZOTAŞ");
+            fromComboBox.Items.Add("AYDIN - OTOGAR");
+            fromComboBox.Items.Add("KOCAELİ - KOCAŞ");
+            toComboBox.Items.Add("iSTANBUL - DUDULLU");
+            toComboBox.Items.Add("ANKARA - AŞTİ");
+            toComboBox.Items.Add("İZMİR - İZOTAŞ");
+            toComboBox.Items.Add("ESKİŞEHİR - ESTAŞ");
+            toComboBox.Items.Add("NAZİLLİ - OTOGAR");
+            hoursComboBox.Items.Add("01.00 am");
+            hoursComboBox.Items.Add("04.00 am");
+            hoursComboBox.Items.Add("07.00 am");
+            hoursComboBox.Items.Add("12.00 am");
+            hoursComboBox.Items.Add("01.00 pm");
+            hoursComboBox.Items.Add("04.00 pm");
+            hoursComboBox.Items.Add("07.00 pm");
+            hoursComboBox.Items.Add("00.00 pm");
      
         }
         public String conString = "Data Source=DESKTOP-543P5LQ;Initial Catalog=BUSCOM;Integrated Security=true";
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        private void maleRadioBtn_CheckedChanged(object sender, EventArgs e)
         {
             gender = "male";
         }
 
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        private void femaleRadioBtn_CheckedChanged(object sender, EventArgs e)
         {
             gender = "female";
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void nextBtn_Click(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection(conString);
             con.Open();
@@ -76,7 +70,7 @@ namespace BCproject
                 MessageBox.Show("Connected to database");
             }
 
-            if (radioButton1.Checked == false && radioButton2.Checked == false)
+            if (maleRadioBtn.Checked == false && femaleRadioBtn.Checked == false)
             {
                 MessageBox.Show("Please check your gender");
             }
@@ -88,12 +82,7 @@ namespace BCproject
             f2.Show();
             this.Hide();
     
-        }
-
-        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+    }
     }
     }
 
